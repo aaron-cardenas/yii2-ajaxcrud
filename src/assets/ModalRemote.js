@@ -324,11 +324,15 @@ function ModalRemote(modalId){
 				$(modalFormSubmitBtn).click(function(e){
 					var url = $(modalForm).attr('action');
 					var method = $(modalForm).hasAttr('method')?$(modalForm).attr('method'):'GET';
-					var data = $(modalForm).serializeArray();
+					//var data = $(modalForm).serializeArray();
+					var formData = new FormData(modalForm); //Allow file uploads
+
 					$.ajax({
 						url:url,
 						method:method,
-						data: data,
+						data: formData,
+						contentType: false,
+        				processData: false,
 						beforeSend:function(){
 							beforeRemoteRequest.call(instance);
 						},
@@ -339,7 +343,7 @@ function ModalRemote(modalId){
 							successRemoteResponse.call(instance,response);
 						}
 					});
-				});				
+				});	
 			}
 		}// End of found form check
 		

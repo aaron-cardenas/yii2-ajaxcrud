@@ -21,3 +21,7 @@ composer.lock
 
 # Windows shortcuts
 *.lnk
+prepros.cfg
+README.sublime-workspace
+yii2-ajaxcrud.sublime-project
+yii2-ajaxcrud.sublime-workspace
